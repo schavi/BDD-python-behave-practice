@@ -3,7 +3,7 @@ import behave
 
 from time import sleep
 
-from page_model import Ecosia
+from POM.page_model import Ecosia
 
 @given("Opening ecosia.org")
 def open_ecosia(context):
