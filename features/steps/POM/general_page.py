@@ -5,6 +5,9 @@ from selenium.webdriver import Edge
 from selenium.webdriver import Chrome
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+from datetime import datetime
 
 class GeneralPage:
 
@@ -46,11 +49,8 @@ class GeneralPage:
     def current_url(self):
         return self.browser.current_url
 
-    def save_screenshot(self, path):
+    def save_full_screenshot(self):
         filename = f"{self.browser.title}-{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.png"
-        print(f"Sceenshot attempt: {path}\\{filename}")
-        if self.browser.save_screenshot(f"{path}\\{filename}"):
-            print("Screenshot saved successfully")
-        else:
-            print("Screenshot failed.")
+        print(f"Sceenshot attempt: 'screenshots'\\{filename}")
+        self.browser.find_element(By.TAG_NAME, "body").screenshot(f"screenshots\\{filename}")
 
