@@ -8,6 +8,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from datetime import datetime
+import os
+
 
 class GeneralPage:
 
@@ -50,7 +52,8 @@ class GeneralPage:
         return self.browser.current_url
 
     def save_full_screenshot(self):
-        filename = f"{self.browser.title}-{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.png"
-        print(f"Sceenshot attempt: 'screenshots'\\{filename}")
-        self.browser.find_element(By.TAG_NAME, "body").screenshot(f"screenshots\\{filename}")
+        filename = f"[{self.browser.title}]_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.png"
+        screenshot_path = os.path.join(os.getcwd(), 'screenshots', filename)
+        print(f"Sceenshot attempt: {screenshot_path}")
+        self.browser.find_element(By.TAG_NAME, "body").screenshot(screenshot_path)
 
