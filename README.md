@@ -1,2 +1,3 @@
-# BDD-python-behave-practice
-Experimenting with writing Gherkin-based tests using the behave module for python.
+## BDD-python-behave-practice
+
+My first attempts writing Gherkin-based specifications and tests; using the behave module for python.
